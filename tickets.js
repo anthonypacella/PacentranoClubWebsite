@@ -80,23 +80,26 @@ function showPage(pageId) {
     });
   
     // Example: send data to server
-    fetch('/purchase-ticket', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-      .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.json();
-      })
-      .then(result => {
-        console.log('Ticket purchased:', result);
-        showPage('successPage');
-      })
-      .catch(error => {
-        console.error('Error purchasing ticket:', error);
-        alert('There was a problem processing your ticket. Please try again.');
+    document.querySelector("#ticketForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+      
+        const formData = new FormData(this);
+      
+        fetch("https://formsubmit.co/ajax/YOUR_EMAIL@example.com", {
+          method: "POST",          // ✅ must be POST
+          body: formData           // ✅ don't set Content-Type manually
+        })
+        .then(res => {
+          if (!res.ok) throw new Error("Network response was not ok");
+          return res.json();
+        })
+        .then(data => {
+          console.log("Success:", data);
+          window.location.href = "#paymentPage";
+        })
+        .catch(err => console.error("Error purchasing ticket:", err));
       });
+      
   });
   
   function buyAnotherTicket() {
