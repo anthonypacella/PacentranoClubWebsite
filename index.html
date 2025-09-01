@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pacentro Club Event</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <div class="hero-content">
+      <h1>Welcome to the Pacentrano Club Smoker</h1>
+      <p>Join us for an unforgettable evening of dinner, drinks, and camaraderie.</p>
+      <a href="#tickets" class="btn btn-primary">Buy Tickets</a>
+    </div>
+  </section>
+
+  <!-- Buy Tickets Section -->
+  <section id="tickets" style="padding: 40px 0;">
+    <div class="shell">
+      <ul class="steps">
+        <li data-page="ticketsPage">Tickets</li>
+        <li data-page="formPage">Info</li>
+        <li data-page="paymentPage">Payment</li>
+      </ul>
+      <div class="card">
+
+        <!-- Page 1: Ticket Selection -->
+        <div id="ticketsPage" class="page active">
+          <h2 onclick="showPage('ticketsPage')" class="clickable-header">Choose your ticket:</h2>
+          <button class="ticket-btn" onclick="selectTicket('$75 - NON-MEMBER: Dinner, Open Bar, and Cigars')">$75 - NON-MEMBER: Dinner, Open Bar, and Cigars</button>
+          <div class="spacer"></div>
+          <button class="ticket-btn" onclick="selectTicket('$65 - NON-MEMBER, NON-SMOKER: Dinner and Open Bar Only')">$65 - NON-MEMBER, NON-SMOKER: Dinner and Open Bar Only</button>
+          <div class="spacer"></div>
+          <button class="ticket-btn" onclick="selectTicket('$55 - MEMBER: Dinner, Open Bar, and Cigars')">$55 - MEMBER: Dinner, Open Bar, and Cigars</button>
+          <div class="spacer"></div>
+          <button class="ticket-btn" onclick="selectTicket('$45 - MEMBER, NON-SMOKER: Dinner and Open Bar Only')">$45 - MEMBER, NON-SMOKER: Dinner and Open Bar Only</button>
+          <div class="spacer"></div>
+          <h2>Event Flyer:</h2>
+          <img src="flyer.png" alt="Event Flyer" class="responsive" />
+          <p class="note">Join Us!</p>
+        </div>
+
+        <!-- Page 2: Form Submission -->
+        <div id="formPage" class="page">
+          <h2 onclick="showPage('formPage')" class="clickable-header">Info</h2>
+          <form id="ticketForm" action="https://formsubmit.co/pacentranoclubit@gmail.com" method="POST">
+            <input class="input" type="text" name="name" placeholder="Full Name" required>
+            <div class="helper">As it should appear on your reservation.</div>
+
+            <input class="input" type="email" name="email" placeholder="Email" required>
+            <div class="helper">We’ll send your confirmation here.</div>
+
+            <input class="input" type="tel" name="phone" placeholder="Phone Number" required>
+            <div class="helper">For day‑of updates if needed.</div>
+
+            <input type="hidden" name="ticket" id="ticketInput" />
+            <input type="hidden" name="_next" value="https://anthonypacella.github.io/PacentranoSmokerTickets/#paymentPage" />
+            <input type="hidden" name="_autoresponse" value="Thanks for your ticket submission. Please bring this email on the day of the event to present at the door. We'll see you on October 11th! " />
+
+            <div class="spacer"></div>
+            <button class="btn btn-primary btn-block" type="submit">Submit</button>
+          </form>
+        </div>
+
+        <!-- Page 3: Payment Instructions -->
+        <div id="paymentPage" class="page">
+          <h2 onclick="showPage('paymentPage')" class="clickable-header">Payment</h2>
+          <p><strong>Send This Amount via Zelle or Venmo:</strong> </p>
+          <p class="amount" id="selectedTicket"></p>
+          <p class="note"><strong>NOTE:</strong> INCLUDE YOUR FULL NAME IN THE ZELLE/VENMO CAPTION</p>
+          <div class="spacer"></div>
+          <p class="note">You will not be added to the guest list until your payment is received</p>
+          <h3>Zelle Option:</h3>
+          <p>Search the Pacentrano Club email address below or Scan QR code to complete the payment</p>
+          <p><strong>Email:</strong> pacentranoclubit@email.com</p>
+          <div class="spacer"></div>
+          <img src="Zelle QR Code.png" alt="Zelle QR Code" class="responsive" style="max-width: 280px; margin: 12px auto; display: block;"/>
+          <div class="spacer"></div>
+          <h3>Venmo Option:</h3>
+          <p>Search the username @anthonypacella or Scan QR code below to complete the Venmo payment:</p>
+          <img src="Venmo QR Code.png" alt="Venmo QR Code" class="responsive" style="max-width: 280px; margin: 12px auto; display: block;"/>
+          <div class="spacer"></div>
+          <button class="btn btn-secondary btn-block" onclick="handleNoPaymentOption()">Click here if you don't have Zelle or Venmo</button>
+          <div class="spacer"></div>
+          <button class="btn btn-secondary btn-block" onclick="buyAnotherTicket()">Buy Another Ticket</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Pacentrano Club. All rights reserved.</p>
+  </footer>
+
+  <!-- Link to external JS -->
+  <script src="tickets.js"></script>
+</body>
+</html>
