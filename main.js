@@ -1,3 +1,5 @@
+console.log("main.js loaded");
+
 document.addEventListener('DOMContentLoaded', () => {
     const buyBtn = document.getElementById('buyTicketsBtn');
     const rentalBtn = document.getElementById('bookRentalBtn');
