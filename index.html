@@ -12,8 +12,8 @@
   <!-- Hero Section -->
   <section id="hero">
     <button id="buyTicketsBtn" class="cta-btn">Buy Tickets</button>
-    <button id="bookRentalBtn" class="cta-btn">Book A Rental</button>
-  </section>  
+    <a href="https://calendly.com/pacentranoclubhallrental/pacentrano-club-hall-rental" class="cta-btn" id="bookRentalBtn">Book A Rental</a>
+</section>  
 
   <!-- Buy Tickets Section -->
   <section id="tickets" style="padding: 40px 0;">
@@ -90,38 +90,6 @@
     </div>
   </section>
 
-  <!-- Rental Booking Wizard -->
-<section id="rental" class="wizard-section">
-    <div id="rentalPage" class="page">
-      <h2>Book a Rental</h2>
-      <p>Select your rental type to get started.</p>
-      <button onclick="showRentalPage('rentalStep1')">Start Booking</button>
-    </div>
-  
-    <div id="rentalStep1" class="page" style="display:none;">
-      <h3>Step 1: Choose Rental Type</h3>
-      <select id="rentalType">
-        <option value="">-- Select --</option>
-        <option value="bike">Bike</option>
-        <option value="kayak">Kayak</option>
-        <option value="paddleboard">Paddleboard</option>
-      </select>
-      <button onclick="showRentalPage('rentalStep2')">Next</button>
-    </div>
-  
-    <div id="rentalStep2" class="page" style="display:none;">
-      <h3>Step 2: Pick a Date</h3>
-      <input type="date" id="rentalDate">
-      <button onclick="showRentalPage('rentalStep3')">Next</button>
-    </div>
-  
-    <div id="rentalStep3" class="page" style="display:none;">
-      <h3>Step 3: Confirm & Pay</h3>
-      <p>Review your rental details and proceed to payment.</p>
-      <button onclick="alert('Rental booked!')">Confirm Booking</button>
-    </div>
-  </section>  
-
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Pacentrano Club. All rights reserved.</p>
@@ -130,6 +98,5 @@
   <!-- Link to external JS -->
   <script src="main.js"></script>
   <script src="tickets.js"></script>
-  <script src="rental.js"></script>
 </body>
 </html>
