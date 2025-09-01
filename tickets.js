@@ -1,3 +1,5 @@
+console.log("tickets.js loaded");
+
 function showPage(pageId) {
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => {
